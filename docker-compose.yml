@@ -2,11 +2,12 @@ version: '3'
 services:
   db:
     image: postgres:11
-    container_name: pgdatabase 
+    container_name: pgdatabase
     environment:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - POSTGRES_DB=postgres
+    #user: "${UID}:${GID}" # Linux users.
     volumes:
         - ./volumes/postgresql:/var/lib/postgresql/data
     ports:
@@ -27,6 +28,8 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
+      - PYTHONDONTWRITEBYTECODE=1
+    #user: "${UID}:${GID}" # Linux users.
     volumes:
       - ${ADDONS_PATH}:/mnt/extra-addons
       - ./volumes/odoo:/etc/odoo
