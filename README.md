@@ -15,7 +15,7 @@ Copy .env.example to .env file:
 cp .env.example .env
 ```
 Edit file and set ```variables```:
-```
+```ini
 # --- Global config
 # Containers alias
 ALIAS=project_alias
