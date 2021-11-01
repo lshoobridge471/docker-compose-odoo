@@ -62,6 +62,22 @@ Create new Odoo Module:
 ```sh
 # CONTAINER_NAME = ALIAS_odoo13
 # Example:
-export $CONTAINER_NAME='myprojectalias_odoo13'
+export $CONTAINER_NAME="myprojectalias_odoo13"
 docker exec -it $CONTAINER_NAME /usr/bin/odoo scaffold my_custom_addon_name /mnt/extra-addons
+```
+
+Run Odoo SHELL:
+```sh
+# CONTAINER_NAME = ALIAS_odoo13
+# Example:
+export $CONTAINER_NAME="myprojectalias_odoo13"
+# Database name specified in .env file.
+export $DBNAME="dbname"
+docker exec -it $CONTAINER_NAME /usr/bin/odoo shell --db_host db -d $DBNAME -w odoo
+```
+
+View live odoo logs:
+```sh
+# Note: replace with your custom path
+tail -f /home/user/odoo-data/odoo-server.log
 ```
