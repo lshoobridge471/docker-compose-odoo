@@ -18,7 +18,7 @@ Edit file and set ```variables```:
 ```ini
 # --- Global config
 # Containers alias
-ALIAS=project_alias
+ALIAS=myprojectalias
 # --- PGSQL Config
 PG_PATH=/home/user/postgresql
 # --- Odoo Config
@@ -62,6 +62,6 @@ Create new Odoo Module:
 ```sh
 # CONTAINER_NAME = ALIAS_odoo13
 # Example:
-export $CONTAINER_NAME='myproject_odoo13'
+export $CONTAINER_NAME='myprojectalias_odoo13'
 docker exec -it $CONTAINER_NAME /usr/bin/odoo scaffold my_custom_addon_name /mnt/extra-addons
 ```
