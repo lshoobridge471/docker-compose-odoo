@@ -53,6 +53,11 @@ Close server:
 ctrl+c
 ```
 
+Close detached server:
+```sh
+docker-compose down
+```
+
 Create new Odoo Module:
 ```sh
 # CONTAINER_NAME = ALIAS_odoo13
