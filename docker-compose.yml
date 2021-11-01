@@ -2,21 +2,21 @@ version: '3'
 services:
   db:
     image: postgres:11
-    container_name: pgdatabase
+    container_name: ${ALIAS}_pgdatabase
     environment:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - POSTGRES_DB=postgres
     #user: "${UID}:${GID}" # Linux users.
     volumes:
-        - ./volumes/postgresql:/var/lib/postgresql/data
+        - ${PG_PATH}:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     restart: always
 
   odoo:
-    image: odoo:13
-    container_name: odoo13
+    image: ayres-odoo:13.0
+    container_name: ${ALIAS}_odoo13
     depends_on:
       - db
     ports:
@@ -31,7 +31,8 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
     #user: "${UID}:${GID}" # Linux users.
     volumes:
-      - ${ADDONS_PATH}:/mnt/extra-addons
+      - ${ODOO_ADDONS_PATH}:/mnt/extra-addons
+      - ${ODOO_DATA_PATH}:/mnt/odoo-data
       - ./volumes/odoo:/etc/odoo
       - /dev/shm:/dev/shm
     restart: always

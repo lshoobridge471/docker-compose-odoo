@@ -14,12 +14,28 @@ Copy .env.example to .env file:
 ```sh
 cp .env.example .env
 ```
-Edit file and set ```DATABASE``` and ```ADDONS_PATH``` variables:
+Edit file and set ```variables```:
 ```
+# --- Global config
+# Containers alias
+ALIAS=project_alias
+# --- PGSQL Config
+PG_PATH=/home/user/postgresql
+# --- Odoo Config
 # Database to init ODOO.
-DATABASE=example
+DATABASE=dbname
 # Custom addons path
-ADDONS_PATH=/opt/my-custom-addons
+ODOO_ADDONS_PATH=/home/user/odoo-addons
+# Custom data path
+ODOO_DATA_PATH=/home/user/odoo-data
+```
+
+Create the folders specified in .env file:
+```sh
+# Note: replace /home/user for your custom user path.
+mkdir /home/user/postgresql
+mkdir /home/user/odoo-addons
+mkdir /home/user/odoo-data
 ```
 
 Execute this server:
@@ -30,4 +46,17 @@ docker-compose up
 Execute this server and detach:
 ```sh
 docker-compose up -d
+```
+
+Close server:
+```sh
+ctrl+c
+```
+
+Create new Odoo Module:
+```sh
+# CONTAINER_NAME = ALIAS_odoo13
+# Example:
+export $CONTAINER_NAME='myproject_odoo13'
+docker exec -it $CONTAINER_NAME /usr/bin/odoo scaffold my_custom_addon_name /mnt/extra-addons
 ```
