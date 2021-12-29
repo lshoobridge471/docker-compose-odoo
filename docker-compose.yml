@@ -15,8 +15,8 @@ services:
     restart: always
 
   odoo:
-    image: ayres-odoo:13.0
-    container_name: ${ALIAS}_odoo13
+    image: odoo:14.0
+    container_name: ${ALIAS}_odoo14
     depends_on:
       - db
     ports:
