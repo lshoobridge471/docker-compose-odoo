@@ -22,6 +22,9 @@ ALIAS=myprojectalias
 # --- PGSQL Config
 PG_PATH=/home/user/postgresql
 # --- Odoo Config
+# Extra/enterprise addons
+ODOO_EXTRA_ADDONS=/home/user/odoo-addons
+ODOO_ENTERPRISE_ADDONS=/home/user/odoo-enterprise-addons
 # Custom data path
 ODOO_DATA_PATH=/home/user/odoo-data
 ```
@@ -63,7 +66,7 @@ Create new Odoo Module:
 # CONTAINER_NAME = ALIAS_odoo14
 # Example:
 export $CONTAINER_NAME="myprojectalias_odoo14"
-docker exec -it $CONTAINER_NAME /usr/bin/odoo scaffold my_custom_addon_name /mnt/odoo-data/addons/14.0
+docker exec -it $CONTAINER_NAME /usr/bin/odoo scaffold my_custom_addon_name /mnt/extra-addons
 ```
 
 Run Odoo SHELL:

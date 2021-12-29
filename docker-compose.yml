@@ -33,6 +33,8 @@ services:
     #user: "${UID}:${GID}" # Linux users.
     volumes:
       - ${ODOO_DATA_PATH}:/mnt/odoo-data
+      - ${ODOO_EXTRA_ADDONS}:/mnt/extra-addons
+      - ${ODOO_ENTERPRISE_ADDONS}:/mnt/enterprise-addons
       - ./volumes/odoo:/etc/odoo
       - /dev/shm:/dev/shm
     restart: always
