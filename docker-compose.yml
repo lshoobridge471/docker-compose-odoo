@@ -23,7 +23,8 @@ services:
       - "8069:8069"
       - "8072:8072"
     tty: true
-    command: -- -d ${DATABASE} --dev=reload
+    #command: -- -d ${DATABASE} --dev=reload
+    command: -- --dev=reload
     environment:
       - HOST=db
       - USER=odoo
@@ -31,7 +32,6 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
     #user: "${UID}:${GID}" # Linux users.
     volumes:
-      - ${ODOO_ADDONS_PATH}:/mnt/extra-addons
       - ${ODOO_DATA_PATH}:/mnt/odoo-data
       - ./volumes/odoo:/etc/odoo
       - /dev/shm:/dev/shm
