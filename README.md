@@ -17,10 +17,14 @@ cp .env.example .env
 Edit file and set ```variables```:
 ```ini
 # --- Global config
+# Versions
+PG_VERSION=11
+ODOO_VERSION=14.0
 # Containers alias
 ALIAS=myprojectalias
 # --- PGSQL Config
 PG_PATH=/home/user/postgresql
+PG_LOGS_PATH=/home/user/postgresql-logs
 # --- Odoo Config
 # Extra/enterprise addons
 ODOO_EXTRA_ADDONS=/home/user/odoo-addons
