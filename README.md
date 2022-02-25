@@ -1,5 +1,5 @@
 # Docker compose file for Odoo with Postgress
-## docker-compose-odoo:0.1
+## docker-compose-odoo-all:0.1
 
 Docker compose file to execute Odoo (with custom addons) and PostgreSQL.
 
