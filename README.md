@@ -66,6 +66,7 @@ Create new Odoo Module (scaffolding):
 ```sh
 docker exec -it project_alias_odoo /usr/bin/odoo scaffold myaddonname /mnt/extra-addons
 ```
+Now, you see the new addon in folder specified on `ODOO_EXTRA_ADDONS` environment line.
 
 Run Odoo SHELL:
 ```sh
